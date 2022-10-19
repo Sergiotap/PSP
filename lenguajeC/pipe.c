@@ -7,11 +7,13 @@ int main (void){
     pid_t pid;
     pipe(fd);
     pid=fork();
+ srand (time(NULL));
     int num;
     int suma=0;
     do
     {
-        num=rand()% 21;
+       
+        num= rand()% 21;
         switch(pid) {
             case -1: 
                 printf("NO SE HA PODIDO CREAR HIJO ... " );
@@ -28,6 +30,7 @@ int main (void){
     } while (num!=17);
     if(suma>0){
         printf("\tLa suma es : %d\n",suma);
+    return 0;
     }
     return 0;
 }
