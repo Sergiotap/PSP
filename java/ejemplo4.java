@@ -4,14 +4,17 @@ public class ejemplo4 {
 	public static void main(String[] args) throws IOException {
 
 		Process p = new ProcessBuilder("bash", "-c", "ifconfig").start();
+		String cadena="";
 		try {
 
 			InputStream is = p.getInputStream();
 
 			// mostramos en pantalla caracter a caracter
 			 int c;
-			 while ((c = is.read()) != -1)
-				System.out.print((char) c);
+			 while ((c = is.read()) != -1){ 
+				cadena=String.valueOf((char) c);
+				System.out.print(cadena);
+			 }
 			 is.close();
 
 		
