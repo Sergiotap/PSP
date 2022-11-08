@@ -1,6 +1,6 @@
-package TEMA_2;
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 public class holaMundoSwing extends JFrame  {
     public holaMundoSwing(){
@@ -8,14 +8,14 @@ public class holaMundoSwing extends JFrame  {
         JLabel label = new JLabel("Hola Mundo");
         getContentPane().add(label);
         JButton boton=new JButton("Púlsame");
-        /*boton.addActionListener(new ActionListener(){
+        boton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 label.setText("Pulsado");
             }
         }
-        );ESTO NO QUIERE FUNCIONAR
-        */
+        );
+        
         getContentPane().add(boton);
         setLayout(new FlowLayout());
         setSize(200,100);
