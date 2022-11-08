@@ -1,4 +1,3 @@
-package TEMA_2;
 public class Hilo implements Runnable {
 	
 	public void run() {

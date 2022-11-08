@@ -1,4 +1,3 @@
-package TEMA_2;
 
 public class ejercicio1 extends Thread{
     private static int numHijos=4;
