@@ -5,31 +5,41 @@ import java.awt.event.*;
 public class relojSwing extends JFrame  {
     public relojSwing(){
         super("Reloj");
-        JLabel label = new JLabel("Hola Mundo");
-        getContentPane().add(label);
-        JButton boton=new JButton("Púlsame");
-        boton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                Contador c=new Contador(label);
-                Thread t=new Thread();
-                t.start();
+        JLabel l= new JLabel();
+        l.setText("0");
+        
+        setLayout(new FlowLayout());
+
+        getContentPane().add(l);
+
+        JButton b = new JButton("¡Comienza!");
+        getContentPane().add(b);
+
+           
+        Contador c= new Contador(l);
+        Thread t= new Thread(c);
+        b.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e){
+            if(t.isAlive()){
+                t.resume();
+            }else{
+              
+              t.start();
             }
-        }
-        );        
-        getContentPane().add(boton);
-        /*JButton bPara=new JButton("¡PARA!");
+         }
+        });
+        JButton bPara = new JButton("¡Para!");
         getContentPane().add(bPara);
         bPara.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e){
-                Thread t=new Thread();
-                t.stop();
-            }
-        });*/
-        setLayout(new FlowLayout());
-        setSize(200,100);
-        setVisible(true);
+                public void actionPerformed(ActionEvent e){
+                    t.suspend();
+                }
+        });
+
+        setSize(500, 400);
+        setVisible(true); //
     }
     public static void main(String[] args) {
         new relojSwing();
