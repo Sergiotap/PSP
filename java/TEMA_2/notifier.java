@@ -6,11 +6,11 @@ public class notifier implements Runnable {
     @Override
     public void run() {
     String name = Thread.currentThread().getName();
-    System.out.println(name+" started");
+    System.out.println("Se ha empezado "+name);
     try {
     Thread.sleep(1000);
     synchronized (msg) {
-    msg.setMsg(name+" Notifier work done");
+    msg.setMsg("Se ha notificado a "+name);
     //msg.notify();
     msg.notifyAll();
     }
