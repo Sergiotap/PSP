@@ -7,6 +7,6 @@ public class waitNotifyTest {
     new Thread(waiter1, "waiter1").start();
     notifier notifier = new notifier(msg);
     new Thread(notifier, "notifier").start();
-    System.out.println("All the threads are started");
+    System.out.println("Se han comenzado los hilos");
     }
     }
