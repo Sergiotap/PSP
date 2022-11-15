@@ -22,7 +22,7 @@ public class relojSwing extends JFrame{
 		
 		Object sync = new Object();
 		
-		Contador c = new Contador(l, sync);
+		ContadorSergio c = new ContadorSergio(l, sync);
 		Thread t = new Thread(c);
 		t.start();
 		

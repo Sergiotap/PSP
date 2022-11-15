@@ -1,42 +1,21 @@
-import javax.swing.JLabel;
-
-public class Contador implements Runnable {
-	private static final long INTERVALO = 1;
-	JLabel _salida;
-	Object _sync;
-	
-	int cont = 0;
-	
-	public Contador(JLabel salida, Object sync) {
-		_salida = salida;
-		_sync = sync;
+class Contador {
+	private int c = 0; //atributo contador
+	Contador (int c) {
+		this.c = c;
 	}
-	
-	private void parar() {
-		try {
-			synchronized(_sync) {
-				_sync.wait();
-			}
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		}
+	// 3º.- Posible sincro
+	public void incrementa() {
+		int tmp = c;
+		tmp = tmp + 1;
+		c = tmp;
 	}
-	
-	@Override
-	public void run() {
-		parar();
-		
-		while(true) {
-			cont++;
-			_salida.setText(Integer.toString(cont));
-			
-			try {
-				Thread.sleep(INTERVALO);
-			} catch (InterruptedException e) {
-				//e.printStackTrace();
-				parar();
-			}
-		}
+	// 3º.- Posible sincro
+	public void decrementa() {
+		int tmp = c;
+		tmp = tmp - 1;
+		c = tmp;
+	}
+	public int valor() {
+		return c;
 	}
 }
