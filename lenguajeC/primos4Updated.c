@@ -20,9 +20,11 @@ int main()
 		exit(-1);
         }
         else if(pid2==0){
+            wait(NULL);
             imprimePrimos(100000,125000);
         }
         else{
+            wait(NULL);
             imprimePrimos(125000,150000);
         }
     }
@@ -32,9 +34,11 @@ int main()
 		exit(-1);
         }
         else if(pid2==0){
+            wait(NULL);
             imprimePrimos(150000,175000);
         }
         else{
+           wait(NULL); 
            imprimePrimos(175000,200000);
         }
     }
@@ -51,7 +55,7 @@ void imprimePrimos(int num1, int num2) {
             
             }
             if (y>=num1) {
-                printf("\n primai: %d ",num1);
+                printf("\n primo: %d ",num1);
             }
 
         }
