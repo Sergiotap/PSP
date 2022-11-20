@@ -8,10 +8,6 @@ int main(void )
 	int hijo2[2];
     pipe(hijo1);
     pipe(hijo2);
-    int Psuma1[2];
-	int Psuma2[2];
-    pipe(Psuma1);
-    pipe(Psuma2);
 	srand(time(NULL));
     int entero;
     int fin = 0;
@@ -20,8 +16,8 @@ int main(void )
     int id = fork();
 	if (id == -1){
 	   	return 2;   		
-	} else if (id == 0){
-		close(hijo1[1]); 
+	} 
+	else if (id == 0){
 		while(0!=read(hijo1[0],&entero, sizeof(entero))){
 			if(entero%4==0 && entero!=0){
 	            printf("\tEl HIJO recibe multiplos: %d\n",entero);
@@ -29,15 +25,13 @@ int main(void )
 			} 
 			if (entero==0){
 				//printf("\tSuma HIJO multiplos: %d\n",suma);
-				close(Psuma1[0]); 
-				write(Psuma1[1], &suma, sizeof(suma));
+				write(hijo1[1], &suma, sizeof(suma));
 				exit(0); 
 			}
         }   	
 	} 
 	else {
 		if (fork() == 0){ 
-			close(hijo2[1]);
 			while(0!=read(hijo2[0], &entero, sizeof(entero))){
 				if(entero%4!=0){
 					printf("\tEl HIJO2 recibe normales: %d\n",entero);
@@ -45,8 +39,7 @@ int main(void )
 				}
 				if (entero==0){
 					//printf("\tSuma HIJO normales: %d\n",suma2);
-					close(Psuma2[0]);
-					write(Psuma2[1], &suma2, sizeof(suma2));
+					write(hijo2[1], &suma2, sizeof(suma2));
 					exit(0);
 				}
 			}      	
@@ -68,10 +61,8 @@ int main(void )
 		wait(NULL);
 		close(hijo1[1]);
 		close(hijo2[1]);
-		close(Psuma1[1]);
-		close(Psuma2[1]);
-		read(Psuma1[0], &suma, sizeof(suma));
-		read(Psuma2[0], &suma2, sizeof(suma2));
+		read(hijo1[0], &suma, sizeof(suma));
+		read(hijo2[0], &suma2, sizeof(suma2));
 		printf("\tSuma FINAL MULTIPLOS: %d\n",suma);
 		printf("\tSuma FINAL NORMALES: %d\n",suma2);
 	}    

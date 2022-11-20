@@ -9,10 +9,9 @@ public class usarC {
         InputStream is=p.getInputStream();
         int c;
         System.out.println("Antes del bucle");
-        while((c=is.read())!=-1){
-            System.out.print(c=is.read());
-        }
-        System.out.println("Después del bucle");
+        System.out.println();
+        while((c=is.read())!=0)
+            System.out.print((char)c);
         is.close();
     } catch (Exception e) {
         e.printStackTrace();

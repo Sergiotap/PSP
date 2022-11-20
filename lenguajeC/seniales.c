@@ -18,6 +18,6 @@ int main () {
 
 void sighandler(int signum) {
    printf("Caught signal %d, coming out...\n", signum);
-   exit(1);
+   //exit(1);
 }
 
