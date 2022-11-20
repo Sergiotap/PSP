@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 int main (void){
-    int fd[2], fd2[2];
+    int fd[2];
     pid_t pid;
     pipe(fd);
     pid=fork();
@@ -13,7 +13,7 @@ int main (void){
     do
     {
        
-        num= rand()% 21;
+        num= (rand()% 10)-1;
         switch(pid) {
             case -1: 
                 printf("NO SE HA PODIDO CREAR HIJO ... " );
@@ -27,7 +27,7 @@ int main (void){
                 write(fd[1], &num, sizeof(num));
                 break;
         }
-    } while (num!=17);
+    } while (num!=0);
     if(suma>0){
         printf("\tLa suma es : %d\n",suma);
     return 0;
