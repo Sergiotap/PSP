@@ -10,6 +10,7 @@ int main () {
    signal(SIGKILL, sighandler);
 
    while(1) {
+      printf("Interrúmpeme si puedes, soy el proceso %d \n",getpid());
       printf("Going to sleep for a second...\n");
       sleep(1); 
    }
@@ -17,7 +18,11 @@ int main () {
 }
 
 void sighandler(int signum) {
-   printf("Caught signal %d, coming out...\n", signum);
+   if(signum==2){
+      printf("No me puedes cerrar así\n");
+      fork();
+   }
+
    //exit(1);
 }
 
