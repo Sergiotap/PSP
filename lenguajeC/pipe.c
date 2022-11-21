@@ -12,8 +12,7 @@ int main (void){
     int suma=0;
     do
     {
-       
-        num= (rand()% 10)-1;
+        num=rand()% 10;
         switch(pid) {
             case -1: 
                 printf("NO SE HA PODIDO CREAR HIJO ... " );
