@@ -15,7 +15,7 @@ public class ej6 {
 		
 		File salida = new File("salida.txt");
 		File path = new File("/home/sergiotap/.config/Code/User/workspaceStorage/772d8a9671cd0c9fdf6f7e3dc6d3d57f/redhat.java/jdt_ws/PSP_7e39c477/bin");
-		ProcessBuilder pb = new ProcessBuilder("java","repaso.ej4",str);
+		ProcessBuilder pb = new ProcessBuilder("java","repaso.ej5",str);
 		pb.directory(path);
 		
 		pb.redirectOutput(salida);
