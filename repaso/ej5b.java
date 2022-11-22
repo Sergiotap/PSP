@@ -10,8 +10,12 @@ public class ej5b {
         File directorio = new File("/home/sergiotap/.config/Code/User/workspaceStorage/772d8a9671cd0c9fdf6f7e3dc6d3d57f/redhat.java/jdt_ws/PSP_7e39c477/bin");
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Escribe la cadena: ");
-		String cadena =sc.next();
-		ProcessBuilder pb = new ProcessBuilder("java", "repaso.ej5",cadena);
+		String cadena =sc.nextLine();
+		String cadenaEnviar="";
+		if(!(cadena=="\n")){
+			cadenaEnviar=cadena;
+		}
+		ProcessBuilder pb = new ProcessBuilder("java", "repaso.ej5",cadenaEnviar);
 		pb.directory(directorio);
 		
 		System.out.printf("Directorio de trabajo: %s%n",pb.directory());
