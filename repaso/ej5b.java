@@ -11,11 +11,7 @@ public class ej5b {
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Escribe la cadena: ");
 		String cadena =sc.nextLine();
-		String cadenaEnviar="";
-		if(!(cadena=="\n")){
-			cadenaEnviar=cadena;
-		}
-		ProcessBuilder pb = new ProcessBuilder("java", "repaso.ej5",cadenaEnviar);
+		ProcessBuilder pb = new ProcessBuilder("java", "repaso.ej5",cadena);
 		pb.directory(directorio);
 		
 		System.out.printf("Directorio de trabajo: %s%n",pb.directory());
