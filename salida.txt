@@ -1,0 +1,2 @@
+Programa ejecutado
+El argumento es un número menor que 1
