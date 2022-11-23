@@ -1,5 +1,1 @@
-patata
-patata
-patata
-patata
-patata
+La cadena es un palíndromo
