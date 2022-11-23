@@ -14,7 +14,7 @@ public class ej9 {
 		BufferedReader br = new BufferedReader(new FileReader(entrada));
 		String str = br.readLine();
 		br.close();
-		ProcessBuilder pb = new ProcessBuilder("java", "repaso.ej7", str);
+		ProcessBuilder pb = new ProcessBuilder("java", "repaso.ej7");
 		pb.directory(directorio);
 		System.out.printf("Directorio de trabajo: %s%n",pb.directory());
 		Process p = pb.start();
