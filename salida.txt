@@ -1,0 +1,1 @@
+La cadena es un palíndromo

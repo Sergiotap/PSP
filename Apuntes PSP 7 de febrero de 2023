@@ -1,0 +1,5 @@
+MISITIO->Settings->Cambiar ALLOWED_HOSTS = 'IP DA LA MÁQUINA', 'localhost', '0.0.0.0'
+http://192.168.20.200:8000/admin
+usuario:alumno
+contraseña:estudia+
+curl -h "Authorization: Token <token>" http://ip:puerto/Polls/api/question
